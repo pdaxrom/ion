@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliProject version="3.2" title="ion_board" device="LCMXO2-7000HC-4TG144C" default_implementation="impl1">
     <Options/>
-    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="mips_soc"/>
+    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="c2sb_demo"/>
         <Source name="../../vhdl/mips_alu.vhdl" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="../../vhdl/mips_cache_stub.vhdl" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="../../vhdl/mips_cache.vhdl" type="VHDL" type_short="VHDL">
@@ -34,6 +31,12 @@
             <Options/>
         </Source>
         <Source name="../../vhdl/SoC/uart.vhdl" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="mainboard.vhdl" type="VHDL" type_short="VHDL">
+            <Options top_module="c2sb_demo"/>
+        </Source>
+        <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
         <Source name="ion_board.lpf" type="Logic Preference" type_short="LPF">

@@ -4,7 +4,7 @@ include ../common/makefile
 # Link script to be used: run from BRAM, use upper chunk of RAM, leaving 
 # the memory from 0x0 onwards free to be initialized with the binary file
 # read from the SD card.
-LINK_SCRIPT = $(SRC_DIR)/common/boot.lds
+LINK_SCRIPT = $(SRC_DIR)/common/bram.lds
 
 #-- Configure the application --------------------------------------------------
 

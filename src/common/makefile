@@ -47,12 +47,12 @@ else
 # MIPS GCC cross-toolchain: BuildRoot toolchain in my home directory -- replace with your own
 # NOTE: we will not use gcc builtin functions or libc
 
-BIN_MIPS = /home/jaruiz/desarrollo/uClinux/MIPS/buildroot/buildroot-2010.11/output/staging/usr/bin
-CC = $(BIN_MIPS)/mips-unknown-linux-uclibc-gcc $(CFLAGS)
-AS = $(BIN_MIPS)/mips-unknown-linux-uclibc-as
-LD = $(BIN_MIPS)/mips-unknown-linux-uclibc-ld
-DUMP = $(BIN_MIPS)/mips-unknown-linux-uclibc-objdump
-COPY = $(BIN_MIPS)/mips-unknown-linux-uclibc-objcopy
+CROSS_PREFIX=mips-sde-elf-
+CC = $(CROSS_PREFIX)gcc $(CFLAGS)
+AS = $(CROSS_PREFIX)as
+LD = $(CROSS_PREFIX)ld
+DUMP = $(CROSS_PREFIX)objdump
+COPY = $(CROSS_PREFIX)objcopy
 
 endif
 

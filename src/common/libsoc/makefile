@@ -1,13 +1,12 @@
 
 #-- Set up toolchain -- modify as needed ---------------------------------------
 
-BIN_MIPS = C:/dev/embedded/SourceryGpp/mips-elf-11-03.52/bin
-CC = $(BIN_MIPS)/mips-sde-elf-gcc.exe $(CFLAGS)
-AS = $(BIN_MIPS)/mips-sde-elf-as
-AR = $(BIN_MIPS)/mips-sde-elf-ar
-LD = $(BIN_MIPS)/mips-sde-elf-ld
-DUMP = $(BIN_MIPS)/mips-sde-elf-objdump
-COPY = $(BIN_MIPS)/mips-sde-elf-objcopy
+CROSS_PREFIX=mips-sde-elf-
+CC = $(CROSS_PREFIX)gcc $(CFLAGS)
+AS = $(CROSS_PREFIX)as
+LD = $(CROSS_PREFIX)ld
+DUMP = $(CROSS_PREFIX)objdump
+COPY = $(CROSS_PREFIX)objcopy
 
 
 #-- Common variables -----------------------------------------------------------

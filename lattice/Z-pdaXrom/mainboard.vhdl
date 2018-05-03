@@ -78,8 +78,8 @@ entity c2sb_demo is
 		tvout		: out std_logic_vector(5 downto 0);
 		
 		-- ***** PS2 keyboard
-		ps2dat		: in std_logic;
-		ps2clk		: in std_logic;
+--		ps2dat		: in std_logic;
+--		ps2clk		: in std_logic;
 		
 		--****** Audio out
 		audio		: out std_logic_vector(0 to 1)
@@ -98,6 +98,8 @@ constant SRAM_ADDR_SIZE : integer := 32;
 -- Clock rate selection (affects UART configuration)
 -- Acceptable values: {27000000, 50000000, 45000000(pll config)}
 constant CLOCK_FREQ : integer := 12000000;
+
+constant BAUD_RATE     : integer := 115200; 
 
 --##############################################################################
 -- RS232 interface signals
@@ -195,23 +197,23 @@ function nibble_to_7seg(nibble : std_logic_vector(3 downto 0))
                         return std_logic_vector is
 begin
     case nibble is
-    when X"0"       => return "1111110";
-    when X"1"       => return "0110000";
-    when X"2"       => return "1101101";
-    when X"3"       => return "1111001";
-    when X"4"       => return "0110011";
-    when X"5"       => return "1011011";
-    when X"6"       => return "1011111";
-    when X"7"       => return "1110000";
-    when X"8"       => return "1111111";
-    when X"9"       => return "1111011";
-    when X"a"       => return "1110111";
-    when X"b"       => return "0011111";
-    when X"c"       => return "1001110";
-    when X"d"       => return "0111101";
-    when X"e"       => return "1001111";
-    when X"f"       => return "1000111";
-    when others     => return "1000000"; -- can't happen
+    when X"0"       => return "0000001";
+    when X"1"       => return "1001111";
+    when X"2"       => return "0010010";
+    when X"3"       => return "0000110";
+    when X"4"       => return "1001100";
+    when X"5"       => return "0100100";
+    when X"6"       => return "0100000";
+    when X"7"       => return "0001111";
+    when X"8"       => return "0000000";
+    when X"9"       => return "0000100";
+    when X"a"       => return "0001000";
+    when X"b"       => return "1100000";
+    when X"c"       => return "0110001";
+    when X"d"       => return "1000010";
+    when X"e"       => return "0110000";
+    when X"f"       => return "0111000";
+    when others     => return "0111111"; -- can't happen
     end case;
 end function nibble_to_7seg;
 
@@ -223,6 +225,7 @@ begin
         OBJECT_CODE    => obj_code,
         BOOT_BRAM_SIZE => work.obj_code_pkg.BRAM_SIZE,
         CLOCK_FREQ     => CLOCK_FREQ,
+		BAUD_RATE => BAUD_RATE,
         SRAM_ADDR_SIZE => SRAM_ADDR_SIZE
     )
     port map (
