@@ -45,7 +45,7 @@ entity c2sb_demo is
         -- ***** Clocks
 		clk_ext	: in std_logic;
 
-        -- ***** SRAM 256K x 16
+        -- ***** SRAM 2M x 16
         sram_addr     : out std_logic_vector(19 downto 0);
         sram_data     : inout std_logic_vector(15 downto 0);
         sram_oe_n     : out std_logic;
@@ -97,7 +97,7 @@ constant SRAM_ADDR_SIZE : integer := 32;
 
 -- Clock rate selection (affects UART configuration)
 -- Acceptable values: {27000000, 50000000, 45000000(pll config)}
-constant CLOCK_FREQ : integer := 12000000;
+constant CLOCK_FREQ : integer := 48000000;
 
 constant BAUD_RATE     : integer := 115200; 
 
@@ -363,7 +363,13 @@ end process;
 
 -- Master clock is external 50MHz or 27MHz oscillator
 
-clk <= clk_ext;
+-- clk <= clk_ext;
+
+clkgen: entity clkgen
+port map (
+	CLKI => clk_ext,
+	CLKOP => clk
+);
 
 --##############################################################################
 -- LEDS, SWITCHES
