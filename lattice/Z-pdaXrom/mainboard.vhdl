@@ -74,6 +74,14 @@ entity c2sb_demo is
         mosi        : out std_logic;
         msck        : out std_logic;
 		
+		-- ***** SPI flash chip
+		flash_cs	: out std_logic;
+		flash_so	: in std_logic;
+		flash_wp	: out std_logic;
+		flash_si	: out std_logic;
+		flash_sck	: out std_logic;
+		flash_hold	: out std_logic;
+		
 		-- ***** TV out
 		tvout		: out std_logic_vector(5 downto 0);
 		
@@ -404,10 +412,21 @@ seg_led_l(8) <= '1';
 
 -- Connect to FFs for use in bit-banged interface (still unused)
 mss    <= p0_out(0);       -- SPI CS
-mosi    <= p0_out(2);       -- SPI DI
 msck  <= p0_out(1);       -- SPI SCLK
+mosi    <= p0_out(2);       -- SPI DI
 p1_in(0)    <= miso ;    -- SPI DO
 
+--##############################################################################
+-- SPI flash terface
+--##############################################################################
+
+flash_wp <= '1';
+flash_hold <= '1';
+
+flash_cs <= p0_out(3);
+flash_sck <= p0_out(4);
+flash_si <= p0_out(5);
+p1_in(1) <= flash_so;
 
 --##############################################################################
 -- SERIAL

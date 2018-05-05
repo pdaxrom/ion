@@ -24,9 +24,6 @@
         <Source name="../../vhdl/mips_shifter.vhdl" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="../../vhdl/SoC/bootstrap_code_pkg.vhdl" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="../../vhdl/SoC/mips_soc.vhdl" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -37,6 +34,9 @@
             <Options top_module="c2sb_demo"/>
         </Source>
         <Source name="clkgen.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="bootstrap_code_pkg.vhdl" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">

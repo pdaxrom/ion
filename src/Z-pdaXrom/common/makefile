@@ -47,7 +47,7 @@ else
 # MIPS GCC cross-toolchain: BuildRoot toolchain in my home directory -- replace with your own
 # NOTE: we will not use gcc builtin functions or libc
 
-CROSS_PREFIX=mips-sde-elf-
+CROSS_PREFIX=mips-unknown-elf-
 CC = $(CROSS_PREFIX)gcc $(CFLAGS)
 AS = $(CROSS_PREFIX)as
 LD = $(CROSS_PREFIX)ld
